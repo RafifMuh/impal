@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class user extends Authenticatable
+class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -43,17 +43,17 @@ class user extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function resep()
+    public function Resep()
     {
-        return $this->hasMany(resep::class);
+        return $this->hasMany(Resep::class);
     }
 
-    public function likes()
+    public function Likes()
     {
         return $this->hasMany(Like::class);
     }
 
-    public function komentar()
+    public function Komentar()
     {
         return $this->hasMany(Komentar::class);
     }

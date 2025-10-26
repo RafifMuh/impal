@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class like extends Model
+class Like extends Model
 {
     use HasFactory;
 
@@ -13,11 +13,11 @@ class like extends Model
 
     public function user()
     {
-        return $this->belongsTo(user::class);
+        return $this->belongsTo(User::class);
     }
 
     public function resep()
     {
-        return $this->belongsTo(user::class);
+        return $this->belongsTo(Resep::class);
     }
 }

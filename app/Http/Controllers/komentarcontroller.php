@@ -4,27 +4,27 @@ namespace App\Http\Controllers;
 
 use App\Models\Komentar;
 use Illuminate\Http\Request;
-use illuminate\support\Facades\auth;
+use Illuminate\Support\Facades\Auth;
 
 class KomentarController extends Controller
 {
-    public function store(Request $request, $Id)
+    public function store(Request $request, $id)
     {
         $request->validate(['isi' => 'required|string|max:500']);
 
         Komentar::create([
-            'user_id' => auth()->id(),
-            'resep_id' => $Id,
+            'user_id' => Auth::id(),
+            'resep_id' => $id,
             'isi' => $request->isi,
         ]);
 
-        return response()->json(['message' => 'Komentar berhasil ditambahkan']);
+        return back();
     }
 
     public function destroy($id)
     {
         $komentar = Komentar::findOrFail($id);
-        if ($komentar->user_id === auth()->id()) {
+        if ($komentar->user_id === Auth::id()) {
             $komentar->delete();
             return response()->json(['message' => 'Komentar dihapus']);
         }

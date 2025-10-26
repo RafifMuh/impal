@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class resep extends Model
+class Resep extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'judul', 'deskripsi', 'gambar'];
+    protected $fillable = ['user_id', 'judul', 'deskripsi', 'kategori', 'bahan', 'gambar'];
 
     public function user()
     {
@@ -23,6 +23,6 @@ class resep extends Model
 
     public function komentar()
     {
-        return $this->hasMany(Komentar::class); 
+        return $this->hasMany(Komentar::class);
     }
 }

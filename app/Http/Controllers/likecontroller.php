@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Like;
 use App\Models\Resep;
 use Illuminate\Support\Facades\Auth;
 
 class LikeController extends Controller
 {
-    public function toggle($id)
+    public function store($id)
     {
         $resep = Resep::findOrFail($id);
 
